@@ -1,0 +1,144 @@
+html,
+body {
+  background-color: #fff;
+  color: #636b6f;
+  font-family: "Nunito", sans-serif;
+  font-weight: 200;
+  height: 100vh;
+  margin: 0;
+}
+
+.full-height {
+  height: 100vh;
+}
+
+.flex-center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.position-ref {
+  position: relative;
+}
+
+.top-right {
+  position: absolute;
+  right: 10px;
+  top: 18px;
+}
+
+.content {
+  text-align: center;
+}
+
+.links > a {
+  color: #636b6f;
+  padding: 0 25px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.m-b-md {
+  margin-bottom: 30px;
+}
+
+footer {
+  background: #eee;
+  padding: 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 50px;
+  text-transform: uppercase;
+  border-bottom: 2px solid;
+  padding: 12px 0;
+  color: #ff7800;
+}
+
+.wrapper {
+  max-width: 1140px;
+  padding: 10px;
+  margin: 20px auto;
+}
+
+.create-pizza {
+  background: #f7f7f7;
+  padding: 20px;
+}
+.create-pizza label,
+.create-pizza select {
+  display: block;
+}
+.create-pizza label {
+  margin-top: 30px;
+}
+.create-pizza select {
+  padding: 8px;
+  width: 200px;
+}
+.create-pizza input[type=checkbox] {
+  margin: 10px;
+}
+.create-pizza input[type=submit] {
+  background: #ff7800;
+  padding: 8px 20px;
+  color: #fff;
+  border: 0;
+  margin-top: 20px;
+}
+
+.product-details {
+  text-align: left;
+  background: #f7f7f7;
+  padding: 20px;
+}
+.product-details p {
+  margin: 20px 0;
+  font-weight: bold;
+}
+.product-details img {
+  width: 60px;
+  display: inline-block;
+}
+.product-details button {
+  background: #ff7800;
+  padding: 8px 20px;
+  color: #fff;
+  border: 0;
+  margin-top: 20px;
+}
+
+a.back {
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+  color: #ff7800;
+  margin-bottom: 20px;
+}
+
+.product-index h1 {
+  margin-bottom: 40px;
+}
+.product-index .product-item {
+  margin: 10px 0;
+  padding: 12px;
+  background: #f4f4f4;
+}
+.product-index .product-item img {
+  width: 60px;
+  display: inline-block;
+}
+.product-index .product-item h4 {
+  display: inline-block;
+  font-weight: normal;
+  margin-left: 20px;
+}
+.product-index .product-item h4 a {
+  color: #777;
+  text-decoration: none !important;
+}
