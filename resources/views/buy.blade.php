@@ -29,7 +29,7 @@
                     <p class="description">{{$item->description}}</p>
                     <p class="price">Price : {{$item->price}}</p>
                     <p class="contact">Contact Number : {{$item->contact_number}}</p>
-
+                    <p class="image">{{$item->image}}</p>
 
                 </div>
                 

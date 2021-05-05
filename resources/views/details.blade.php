@@ -22,15 +22,16 @@
                 </div>
 
             @foreach($product as $item)
-            @if($item->category_id==$cat)
+            
             <div class="wrapper product-details">
                     <h1>{{ $item->product_name }}</h1>
-                    <h2>by {{ $item->user_name}}</h2>
+                    <h3>by {{ $item->user_name}}</h3>
                     <p class="description">{{$item->description}}</p>
                     <p class="price">Price : {{$item->price}}</p>
                     <p class="contact">Contact Number : {{$item->contact_number}}</p>
+                    <p class="image">{{$item->image}}</p>
             </div>
-            @endif
+            
             @endforeach
             <h1>Nothing is here for now!</h1>
             </div>

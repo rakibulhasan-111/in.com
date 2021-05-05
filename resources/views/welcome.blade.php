@@ -23,7 +23,7 @@
                 <div class="links">
                     <a href="/buy">Buy</a>
                     <a href="/sell">Sell</a>
-                    <a href="/myadds">My Adds</a>
+                    <a href="/myadds">My Ads</a>
                 </div>
             </div>
         </div>

@@ -77,5 +77,8 @@
             @yield('content')
         </main>
     </div>
+    <footer>
+        <p>Copyright 2021 in.com</p>
+    </footer>
 </body>
 </html>
