@@ -26,13 +26,18 @@
     <br>
     <div class="control-group">
     <div class="form-group col-xs-12 floating-label-form-group controls">
-    <label for="image">Product Image:</label>
-    <input type="file"  class="form-control"name="image" id="image" required >
+    <label for="image">Upload New Image: </label>
+    <input type="file"  value="{{URL('$product->image')}}" class="form-control" name="image" id="image"   >
+    <input type="hidden" name="old_photo" value="{{ $product->image }}"
+    <br>
+    Old Image: <img src="{{URL::to($product->image)}}" style="height: 160px;width: 320px;">
+    
+    <br>
     </div>
     </div>
     <br>
     <label for="description">Product Description:</label>
-    <input type="text" value="{{$product->description}}" name="description" id="description" required>
+    <input type="text"  value="{{$product->description}}" name="description" id="description" required>
     <br>
     <label for="price">Product Price:</label>
     <input type="text" value="{{$product->price}}" name="price" id="price" required>

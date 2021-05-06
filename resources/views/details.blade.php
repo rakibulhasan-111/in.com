@@ -10,7 +10,7 @@
                     {{ $cat }}
                 </div>
 
-                <div class="links">
+                <div class="links m-b-md">
                 <a href="/buy">All</a>
                     <a href="/buy/Home Appliances">Home Appliances</a>
                     <a href="/buy/Question Banks">Question Banks</a>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 Use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -15,27 +16,32 @@ class ProductController extends Controller
         return view('sell',['name' => $name]);
     }
 
-    public function store() {
-
-        $product = new Product();
+    public function store(Request $request) {
+      
         $email = Auth::user()->email;
         $name = Auth::user()->name;
-        $product->email_address = $email;
-        $product->user_name = $name;
-        $product->product_name = request('product_name');
-        $product->category_id = request('category_id');
-        $product->image = request('image');
-        $product->description = request('description');
-        $product->price = request('price');
-        $product->contact_number = request('contact_number');
-
-        
-    
-        $product->save();
-    
-        return redirect('/')->with('mssg', 'Thanks for your order!');
-    
-    }
+       $data=array();
+       $data['user_name']=$name;
+       $data['email_address']=$email;
+       $data['product_name']=$request->product_name;
+       $data['category_id']=$request->category_id;
+       $data['description']=$request->description;
+       //image
+       $image=$request->file('image');
+       $image_name=Str::random(5);
+       $ext=strtolower($image->getClientOriginalExtension());
+       $image_full_name=$image_name.'.'.$ext;
+       $upload_path='public/img/';
+       $image_url=$upload_path.$image_full_name;
+       $success=$image->move($upload_path,$image_full_name);
+       $data['image']=$image_url;
+       //image
+       $data['price']=$request->price;
+       $data['contact_number']=$request->contact_number;
+       Product::insert($data);
+         return view('welcome')->with('mssg', 'Thanks for your order!');
+      
+        }
 
     public function index(){
         return view('welcome');
@@ -71,23 +77,39 @@ class ProductController extends Controller
         return view ('edit',['product'=>$product,'id_number'=>$id_number]);
     }
 
-    public function update( $id_number){
-        $product = new Product();
+    public function update( Request $request,$id_number){
         $email = Auth::user()->email;
         $name = Auth::user()->name;
-        $product->email_address = $email;
-        $product->user_name = $name;
-        $product->product_name = request('product_name');
-        $product->category_id = request('category_id');
-        $product->image = request('image');
-        $product->description = request('description');
-        $product->price = request('price');
-        $product->contact_number = request('contact_number');
-        $product->save();
-        $delete=DB::table('products')->where('id',$id_number)->delete();
+       $data=array();
+       $data['user_name']=$name;
+       $data['email_address']=$email;
+       $data['product_name']=$request->product_name;
+       $data['category_id']=$request->category_id;
+       $data['description']=$request->description;
+       
+       //image
+       $image=$request->file('image');
+       if ($image){
+        $image_name=Str::random(5);
+        $ext=strtolower($image->getClientOriginalExtension());
+        $image_full_name=$image_name.'.'.$ext;
+        $upload_path='public/img/';
+        $image=$request->file('image');
+        $image_url=$upload_path.$image_full_name;  
+        $success=$image->move($upload_path,$image_full_name);
+        @unlink($request->old_photo);
+        $data['image']=$image_url;
+  }
+  else{
+    $data['image']=$request->old_photo;}
+      //image
+       $data['price']=$request->price;
+       $data['contact_number']=$request->contact_number;
+       Product::where('id',$id_number)->update($data);
         $product = Product::where('email_address',$email)->latest()->get();
-        return view('/myadds', ['user_name'=>$name,'product'=> $product]);
-    }
+      
+        return view('/products/myadds', ['user_name'=>$name,'product'=> $product]);
+      }
 
     public function destroy($user_id)
     {

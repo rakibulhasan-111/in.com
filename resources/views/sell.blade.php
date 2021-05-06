@@ -2,14 +2,15 @@
 
 
 @section('content')
-        <div class="flex-center position-ref full-height">
+        
             
+        
 
             <div class="content">
                 <div class="title m-b-md">
                     sell
                 </div>
-
+            </div>
                 <div class="wrapper create-product">
     <h1>Post a New Ad</h1>
 
@@ -19,13 +20,13 @@
     <br>
     <label for="category_id">Choose Your Category:</label>
     <select name="category_id" id="category_id">
-        <option value="Home appliances">Home Appliances</option>
-        <option value="Question banks">Question Banks</option>
-        <option value="Books">Books</option>
-        <option value="Music instruments">Music Instruments</option>
-        <option value="Sports instruments">Sports Instruments</option>
-        <option value="Lab equipments">Lab Equipments</option>
-        <option value="Notes">Notes</option>
+      <option value="Home appliances">Home Appliances</option>
+      <option value="Question banks">Question Banks</option>
+      <option value="Books">Books</option>
+      <option value="Music instruments">Music Instruments</option>
+      <option value="Sports instruments">Sports Instruments</option>
+      <option value="Lab equipments">Lab Equipments</option>
+      <option value="Notes">Notes</option>
     </select>
     <br>
     <label for="product_name">Product name:</label>
@@ -50,9 +51,7 @@
     <br>
     
     <input type="submit" value="Post your Ad">
-    </form>
+  </form>
 </div>
-            </div>
-        </div>
 @endsection
 

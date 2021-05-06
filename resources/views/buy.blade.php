@@ -8,7 +8,7 @@
                     buy
                 </div>
 
-                <div class="links">
+                <div class="links m-b-md">
                 <a href="/buy">All</a>
                     <a href="/buy/Home Appliances">Home Appliances</a>
                     <a href="/buy/Question Banks">Question Banks</a>
@@ -32,7 +32,7 @@
                     <p class="description">{{$item->description}}</p>
                     <p class="price">Price : {{$item->price}}</p>
                     <p class="contact">Contact Number : {{$item->contact_number}}</p>
-                    <img src="{{URL::to($item->image)}}" style="height: 40px, width: 30px;">
+                    <img src="{{URL::to($item->image)}}" style="50%">
 
                 </div>
                 
