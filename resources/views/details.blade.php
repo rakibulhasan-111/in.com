@@ -33,7 +33,7 @@
             </div>
             
             @endforeach
-            <h1>Nothing is here for now!</h1>
+            <h3>Nothing is here for now!</h3>
             </div>
         </div>
 @endsection

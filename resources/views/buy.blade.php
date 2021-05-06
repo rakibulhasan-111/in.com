@@ -24,6 +24,7 @@
                 @foreach($product as $item)
                 
                 <div class="wrapper product-details">
+                    
                     <h1>{{ $item->product_name }}</h1>
                     <h3>by {{ $item->user_name}}</h3>
                     <p class="description">{{$item->description}}</p>
@@ -35,7 +36,7 @@
                 
                 @endforeach
 
-                <h1>Nothing is here for now!</h1>
+                <h3>Nothing is here for now!</h3>
             </div>
         </div>
 @endsection
