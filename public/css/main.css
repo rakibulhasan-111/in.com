@@ -61,7 +61,7 @@ footer {
 }
 
 .wrapper {
-  max-width: 1000px;
+  max-width: 500px;
   padding: 10px;
   margin: 20px auto;
 }
@@ -141,4 +141,26 @@ a.back {
 .product-index .product-item h4 a {
   color: #777;
   text-decoration: none !important;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: #ff7800;
+  float: center;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #ff7800;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 5px;
 }

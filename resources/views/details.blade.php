@@ -2,12 +2,12 @@
 
 
 @section('content')
-        <div class="flex-center position-ref full-height">
+       
             
 
             <div class="content">
                 <div class="title m-b-md">
-                   {{ $cat }}
+                    {{ $cat }}
                 </div>
 
                 <div class="links">
@@ -20,7 +20,7 @@
                     <a href="/buy/Music Instruments">Music Instruments</a>
                     <a href="/buy/Sports Instruments">Sports Instruments</a>
                 </div>
-
+            </div>
             @foreach($product as $item)
             
             <div class="wrapper product-details">
@@ -29,12 +29,14 @@
                     <p class="description">{{$item->description}}</p>
                     <p class="price">Price : {{$item->price}}</p>
                     <p class="contact">Contact Number : {{$item->contact_number}}</p>
-                    <p class="image">{{$item->image}}</p>
+                    <img src="{{URL::to($item->image)}}" style="height: 40px, width: 30px;">
             </div>
             
             @endforeach
-            <h3>Nothing is here for now!</h3>
-            </div>
-        </div>
+            <div class="content">
+                <div class="pagination">{{$product->links()}}</div>
+                </div>
+            
+        
 @endsection
 

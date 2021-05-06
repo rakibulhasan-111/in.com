@@ -2,7 +2,7 @@
 
 
 @section('content')
-        <div class="flex-center position-ref full-height">
+        
             
             <div class="content">
 
@@ -20,7 +20,7 @@
                     <a href="/buy/Music Instruments">Music Instruments</a>
                     <a href="/buy/Sports Instruments">Sports Instruments</a>
                 </div>
-                
+            </div>
                 @foreach($product as $item)
                 
                 <div class="wrapper product-details">
@@ -32,7 +32,7 @@
                     <p class="contact">Contact Number : {{$item->contact_number}}</p>
                     <?php $id_number=$item->id?>
                     <p class="contact">Contact Number : {{$item->contact_number}}</p>
-                    <p class="image">{{$item->image}}</p>
+                    <img src="{{URL::to($item->image)}}" style="height: 40px, width: 30px;">
 
                     <a href="{{ route('products.edit', ['id_number'=>$id_number]) }}" class="btn btn-sm btn-success">Edit</a>
                     <a href="{{route('products.delete', ['id_number'=>$id_number])}}" class="btn btn-sm btn-danger">Delete</a>
@@ -41,10 +41,12 @@
                 
                 @endforeach
 
-                <h3>Nothing is here for now!</h3>
+                <div class="content">
+                <div class="pagination">{{$product->links()}}</div>
+                </div>
                 
-            </div>
+            
 
-        </div>
+        
 @endsection
 

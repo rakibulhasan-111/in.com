@@ -43,14 +43,14 @@ class ProductController extends Controller
 
     public function cat(){
         //$product = Product::latest();
-        $product = Product::orderby('product_name','asc')->get();
+        $product = Product::orderby('product_name','asc')->paginate(2);
         return view('buy', ['product'=>$product]);
     }
 
     public function show($cat){
         //$product = Product::latest();
         //$product = Product::orderby('product_name','asc')->get();
-        $product = Product::where('category_id',$cat)->latest()->get();
+        $product = Product::where('category_id',$cat)->latest()->paginate(2);
         return view('details', ['cat' => $cat, 'product'=>$product]);
     }
 
@@ -62,7 +62,7 @@ class ProductController extends Controller
         $product = new Product();
         $email = Auth::user()->email;
         $name = Auth::user()->name;
-        $product = Product::where('email_address',$email)->latest()->get();
+        $product = Product::where('email_address',$email)->latest()->paginate(2);
         return view('myadds', ['user_name'=>$name,'product'=> $product]);
     }
 
