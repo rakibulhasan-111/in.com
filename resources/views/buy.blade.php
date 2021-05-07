@@ -22,21 +22,27 @@
             </div>
 
         
-
+        
         @foreach($product as $item)
                 
-                <div class="wrapper product-details">
-                    
+                <div class="wrapper">
+
+                <div class="container">
+                <img src="{{URL::to($item->image)}}" alt="Avatar" class="image">
+                <div class="middle">
+                <div class="text">
                     <h1>{{ $item->product_name }}</h1>
                     <h3>by {{ $item->user_name}}</h3>
-                    <p class="description">{{$item->description}}</p>
-                    <p class="price">Price : {{$item->price}}</p>
-                    <p class="contact">Contact Number : {{$item->contact_number}}</p>
-                    <img src="{{URL::to($item->image)}}" style="50%">
-
+                    <h4>Price : {{$item->price}}</h4>
+                    <a href="{{ route('showSingleProduct', ['id_number'=>$item->id]) }}" class="button button1">View Details</a>
+                </div>
+                </div>
+                </div>
+    
                 </div>
                 
         @endforeach
+        
                 <div class="content">
                 <div class="pagination">{{$product->links()}}</div>
                 </div>

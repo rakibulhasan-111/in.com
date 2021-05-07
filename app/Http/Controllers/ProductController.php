@@ -49,14 +49,14 @@ class ProductController extends Controller
 
     public function cat(){
         //$product = Product::latest();
-        $product = Product::orderby('product_name','asc')->paginate(2);
+        $product = Product::orderby('product_name','asc')->paginate(10);
         return view('buy', ['product'=>$product]);
     }
 
     public function show($cat){
         //$product = Product::latest();
         //$product = Product::orderby('product_name','asc')->get();
-        $product = Product::where('category_id',$cat)->latest()->paginate(2);
+        $product = Product::where('category_id',$cat)->latest()->paginate(10);
         return view('details', ['cat' => $cat, 'product'=>$product]);
     }
 
@@ -68,7 +68,7 @@ class ProductController extends Controller
         $product = new Product();
         $email = Auth::user()->email;
         $name = Auth::user()->name;
-        $product = Product::where('email_address',$email)->latest()->paginate(2);
+        $product = Product::where('email_address',$email)->latest()->paginate(10);
         return view('myadds', ['user_name'=>$name,'product'=> $product]);
     }
 
@@ -120,5 +120,11 @@ class ProductController extends Controller
         $name = Auth::user()->name;
         $product = Product::where('email_address',$email)->latest()->get();
         return view('/myadds', ['user_name'=>$name,'product'=> $product]);
+    }
+
+    public function showSingleProduct($id_number)
+    {
+      $product = Product::findorFail($id_number);
+      return view('/showSingleProduct',['item'=>$product]);
     }
 }

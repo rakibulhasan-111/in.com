@@ -35,6 +35,7 @@ Route::get('/delete/{id_number}', [ProductController::class,'destroy'])->name('p
 
 Route::post('/',[ProductController::class,'store'] )->name('products.store') ;
 
+Route::get('/showSingleProduct/{id_number}', [ProductController::class,'showSingleProduct'])->name('showSingleProduct');
 
 
 Auth::routes();
