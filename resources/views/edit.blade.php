@@ -5,7 +5,7 @@
 <div class="wrapper create-product">
   <h1>Update Your Ad</h1>
   
-  <form action="{{ route('products.update', ['id_number'=>$id_number]) }}" method="POST" enctype="multipart/form-data">
+  <form action="{{ route('update', ['id_number'=>$id_number]) }}" method="POST" enctype="multipart/form-data">
     @csrf
    
     <br>
@@ -48,6 +48,7 @@
     <br>
     
     <input type="submit" value="Update">
+    <a href="/myadds" class="button button1">Confirm</a>
   </form>
 </div>
 @endsection

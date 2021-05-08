@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 Use App\Models\Product;
+use App\Models\Favorite;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use Illuminate\Support\Str;
@@ -80,16 +81,16 @@ class ProductController extends Controller
     public function update( Request $request,$id_number){
         $email = Auth::user()->email;
         $name = Auth::user()->name;
-       $data=array();
-       $data['user_name']=$name;
-       $data['email_address']=$email;
-       $data['product_name']=$request->product_name;
-       $data['category_id']=$request->category_id;
-       $data['description']=$request->description;
-       
+        $data=array();
+        $data['user_name']=$name;
+        $data['email_address']=$email;
+        $data['product_name']=$request->product_name;
+        $data['category_id']=$request->category_id;
+        $data['description']=$request->description;
+        
        //image
-       $image=$request->file('image');
-       if ($image){
+    $image=$request->file('image');
+        if ($image){
         $image_name=Str::random(5);
         $ext=strtolower($image->getClientOriginalExtension());
         $image_full_name=$image_name.'.'.$ext;
@@ -99,17 +100,18 @@ class ProductController extends Controller
         $success=$image->move($upload_path,$image_full_name);
         @unlink($request->old_photo);
         $data['image']=$image_url;
-  }
-  else{
+    }
+    else{
     $data['image']=$request->old_photo;}
       //image
-       $data['price']=$request->price;
-       $data['contact_number']=$request->contact_number;
-       Product::where('id',$id_number)->update($data);
+        $data['price']=$request->price;
+        $data['contact_number']=$request->contact_number;
+        Product::where('id',$id_number)->update($data);
         $product = Product::where('email_address',$email)->latest()->get();
-      
-        return view('/products/myadds', ['user_name'=>$name,'product'=> $product]);
-      }
+        
+        //return view('/myadds', ['user_name'=>$name,'product'=> $product]);
+        return back();
+    }
 
     public function destroy($user_id)
     {
@@ -119,12 +121,41 @@ class ProductController extends Controller
         $email = Auth::user()->email;
         $name = Auth::user()->name;
         $product = Product::where('email_address',$email)->latest()->get();
-        return view('/myadds', ['user_name'=>$name,'product'=> $product]);
+        //return view('/myadds', ['user_name'=>$name,'product'=> $product]);
+        return back();
     }
 
     public function showSingleProduct($id_number)
     {
-      $product = Product::findorFail($id_number);
-      return view('/showSingleProduct',['item'=>$product]);
+        $favorite=new Favorite();
+        $product = Product::findorFail($id_number);
+        $id = Auth::id();
+        $favorite = Favorite::where('product_id',$id_number)->where('user_id',$id)->first();
+        return view('/showSingleProduct',['item'=>$product,'favorite'=>$favorite]);
+    }
+
+    public function addFavorite($id_number){
+        $favorite=new Favorite();
+        $favorite->product_id=$id_number;
+        $favorite->user_id=Auth::id();
+        $favorite->save();
+        $product = Product::findorFail($id_number);
+        return back();
+    }
+    public function myfavorites()
+    {
+        $id = Auth::id();
+        $favoriteProductId=DB::table('favorites')
+        ->where('user_id', '=', $id)
+        ->pluck('product_id');
+        $product = Product::latest()->paginate(10);
+        return view('/trial',['favorite'=>$favoriteProductId,'product'=>$product]);
+    }
+    public function removeFromFavorite($favorite_id)
+    {
+      $favorite=new Favorite();
+      $favorite=Favorite::findorFail($favorite_id);
+      $favorite->delete();
+      return back();
     }
 }

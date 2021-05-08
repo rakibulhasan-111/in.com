@@ -21,9 +21,9 @@
                 
 
                 <div class="links">
-                    <a href="/buy">Buy</a>
-                    <a href="/sell">Sell</a>
-                    <a href="/myadds">My Ads</a>
+                    <a href="/buy" class="button button1">Buy</a>
+                    <a href="/sell" class="button button1">Sell</a>
+                    <a href="/myadds" class="button button1">My Ads</a>
                 </div>
             </div>
         </div>

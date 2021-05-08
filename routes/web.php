@@ -27,15 +27,21 @@ Route::get('/myadds', [ProductController::class,'myadds'])->middleware('auth');
 
 Route::get('/buy/{cat}', [ProductController::class,'show'])->middleware('auth');
 
-Route::get('/edit/{id_number}', [ProductController::class,'edit'])->name('products.edit');
+Route::get('/edit/{id_number}', [ProductController::class,'edit'])->name('edit');
 
-Route::post('/update/{id_number}', [ProductController::class,'update'])->name('products.update');
+Route::post('/update/{id_number}', [ProductController::class,'update'])->name('update');
 
-Route::get('/delete/{id_number}', [ProductController::class,'destroy'])->name('products.delete');
+Route::get('/delete/{id_number}', [ProductController::class,'destroy'])->name('delete');
 
-Route::post('/',[ProductController::class,'store'] )->name('products.store') ;
+Route::post('/',[ProductController::class,'store'] )->name('store');
 
 Route::get('/showSingleProduct/{id_number}', [ProductController::class,'showSingleProduct'])->name('showSingleProduct');
+
+Route::get('/addFavorite/{id_number}', [ProductController::class,'addFavorite'])->name('addFavorite');
+
+Route::get('/myfavorites', [ProductController::class,'myfavorites'])->name('myfavorites');
+
+Route::get('/removeFromFavorite/{favorite_id}',[ProductController::class,'removeFromFavorite'])->name('removeFromFavorite');
 
 
 Auth::routes();

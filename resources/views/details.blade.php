@@ -11,14 +11,14 @@
                 </div>
 
                 <div class="links m-b-md">
-                <a href="/buy">All</a>
-                    <a href="/buy/Home Appliances">Home Appliances</a>
-                    <a href="/buy/Question Banks">Question Banks</a>
-                    <a href="/buy/Books">Books</a>
-                    <a href="/buy/Notes">Notes</a>
-                    <a href="/buy/Lab Equipments">Lab Equipments</a>
-                    <a href="/buy/Music Instruments">Music Instruments</a>
-                    <a href="/buy/Sports Instruments">Sports Instruments</a>
+                <a href="/buy" class="button button1">All</a>
+                    <a href="/buy/Home Appliances" class="button button1">Home Appliances</a>
+                    <a href="/buy/Question Banks" class="button button1">Question Banks</a>
+                    <a href="/buy/Books" class="button button1">Books</a>
+                    <a href="/buy/Notes" class="button button1">Notes</a>
+                    <a href="/buy/Lab Equipments" class="button button1">Lab Equipments</a>
+                    <a href="/buy/Music Instruments" class="button button1">Music Instruments</a>
+                    <a href="/buy/Sports Instruments" class="button button1">Sports Instruments</a>
                 </div>
             </div>
             @foreach($product as $item)

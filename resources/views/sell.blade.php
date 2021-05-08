@@ -14,7 +14,7 @@
                 <div class="wrapper create-product">
     <h1>Post a New Ad</h1>
 
-    <form action="{{route('products.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('store')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <h3>{{$name}}</h3>
     <br>
