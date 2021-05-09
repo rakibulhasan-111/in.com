@@ -17,7 +17,7 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/', [ProductController::class,'index']);
 
-Route::get('/buy', [ProductController::class,'cat'])->middleware('auth');
+Route::get('/buy', [ProductController::class,'cat']);
 
 Route::get('/buy/All', [ProductController::class,'cat'])->middleware('auth');
 
@@ -35,7 +35,7 @@ Route::get('/delete/{id_number}', [ProductController::class,'destroy'])->name('d
 
 Route::post('/',[ProductController::class,'store'] )->name('store');
 
-Route::get('/showSingleProduct/{id_number}', [ProductController::class,'showSingleProduct'])->name('showSingleProduct');
+Route::get('/showSingleProduct/{id_number}', [ProductController::class,'showSingleProduct'])->name('showSingleProduct')->middleware('auth');
 
 Route::get('/addFavorite/{id_number}', [ProductController::class,'addFavorite'])->name('addFavorite');
 

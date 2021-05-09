@@ -11,11 +11,16 @@ use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
-    public function __construct()
+
+    public function index(){
+        return view('welcome');
+    }
+
+    /*public function __construct()
     {
         $this->middleware('auth');
         $this->middleware('verified');
-    }
+    }*/
 
     public function create() {
         $name = Auth::user()->name;
@@ -50,9 +55,7 @@ class ProductController extends Controller
       
         }
 
-    public function index(){
-        return view('welcome');
-    }
+    
 
     public function cat(){
         
