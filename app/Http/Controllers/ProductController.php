@@ -11,6 +11,12 @@ use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('verified');
+    }
+
     public function create() {
         $name = Auth::user()->name;
         
@@ -49,14 +55,12 @@ class ProductController extends Controller
     }
 
     public function cat(){
-        //$product = Product::latest();
-        $product = Product::orderby('product_name','asc')->paginate(10);
+        
+        $product = Product::latest()->paginate(1);
         return view('buy', ['product'=>$product]);
     }
 
     public function show($cat){
-        //$product = Product::latest();
-        //$product = Product::orderby('product_name','asc')->get();
         $product = Product::where('category_id',$cat)->latest()->paginate(10);
         return view('details', ['cat' => $cat, 'product'=>$product]);
     }
@@ -115,9 +119,12 @@ class ProductController extends Controller
 
     public function destroy($user_id)
     {
+        $post=DB::table('products')->where('id',$user_id)->first();
+        $image=$post->image;
         $product=new Product();
         $product=Product::findorFail($user_id);
         $product->delete();
+        unlink($image);
         $email = Auth::user()->email;
         $name = Auth::user()->name;
         $product = Product::where('email_address',$email)->latest()->get();
@@ -148,14 +155,19 @@ class ProductController extends Controller
         $favoriteProductId=DB::table('favorites')
         ->where('user_id', '=', $id)
         ->pluck('product_id');
-        $product = Product::latest()->paginate(10);
+        $product = Product::latest()->paginate(5);
         return view('/trial',['favorite'=>$favoriteProductId,'product'=>$product]);
     }
     public function removeFromFavorite($favorite_id)
     {
-      $favorite=new Favorite();
-      $favorite=Favorite::findorFail($favorite_id);
-      $favorite->delete();
-      return back();
+        $id = Auth::id();
+        $favorite=new Favorite();
+        $favorite=Favorite::where('product_id',$favorite_id)->where('user_id',$id)->first();
+        $favorite->delete();
+        $product = Product::latest()->get();
+        $favoriteProductId=DB::table('favorites')
+        ->where('user_id', '=', $id)
+        ->pluck('product_id');
+        return back();
     }
 }

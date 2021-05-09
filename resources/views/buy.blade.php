@@ -44,7 +44,7 @@
         @endforeach
         
                 <div class="content">
-                <div class="pagination">{{$product->links()}}</div>
+                <div class="pagination">{{$product->links('pagination::bootstrap-4')}}</div>
                 </div>
                 
 @endsection

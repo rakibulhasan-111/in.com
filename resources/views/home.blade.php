@@ -1,24 +1,31 @@
-@extends('layouts.app')
-
+@extends('layouts.layout')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+<div class="flex-center position-ref full-height">
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
 
-                    {{ __('You are logged in!') }}
+            <div class="content">
+            <img src="/img/in.com.png" alt="in.com logo" width="500" hight="500">
+                
+
+                <div class="links">
+                    <a href="/buy" class="button button1">Buy</a>
+                    <a href="/sell" class="button button1">Sell</a>
+                    <a href="/myadds" class="button button1">My Profile</a>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 @endsection
+

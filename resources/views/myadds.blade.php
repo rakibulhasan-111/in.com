@@ -7,13 +7,15 @@
             <div class="content">
 
                 <div class="title m-b-md">
-                    {{$user_name}}
+                    My Ads
                 </div>
 
                 <div class="links m-b-md">
-                <a href="/buy" class="button button1">Buy</a>
-                    <a href="/sell" class="button button1">Sell</a>
-                    <a href="{{route('myfavorites')}}" class="button button1">My Favorites</a>
+                    <a href="/" class="button button1">Home</a>
+                    
+                    <a href="{{route('myfavorites')}}" class="button button1">My Favourites</a>
+
+                    <a href="/about" class="button button1">Edit Profile</a>
                 </div>
             </div>
                 @foreach($product as $item)
@@ -40,7 +42,7 @@
                 @endforeach
 
                 <div class="content">
-                <div class="pagination">{{$product->links()}}</div>
+                <div class="pagination">{{$product->links('pagination::bootstrap-4')}}</div>
                 </div>
                 
             

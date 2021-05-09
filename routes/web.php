@@ -44,7 +44,9 @@ Route::get('/myfavorites', [ProductController::class,'myfavorites'])->name('myfa
 Route::get('/removeFromFavorite/{favorite_id}',[ProductController::class,'removeFromFavorite'])->name('removeFromFavorite');
 
 
-Auth::routes();
+Auth::routes(['verify'=>true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
+Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about')->middleware('verified');
+Route::post('/about/passwordchange',[App\Http\Controllers\HomeController::class,'change'])->name('about.passwordchange');
 

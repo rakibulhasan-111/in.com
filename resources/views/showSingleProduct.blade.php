@@ -17,10 +17,11 @@
                     <p class="contact">Contact Number : {{$item->contact_number}}</p>
                     
                     @if(isset($favorite))
-                        <h4>[Added to Favorite]</h4>
+                        <h4>[Added to Favourite]</h4>
+                        <a href="{{route('myfavorites')}}" class="button button1">Go to Favorites</a>
 
                     @else
-                        <a href="{{ route('addFavorite', ['id_number'=>$item->id]) }}" class="button button1">Add to Favorite</a>
+                        <a href="{{ route('addFavorite', ['id_number'=>$item->id]) }}" class="button button1">Add to Favourite</a>
 
                     @endif
 

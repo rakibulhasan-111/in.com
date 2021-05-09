@@ -23,7 +23,9 @@
                 <div class="links">
                     <a href="/buy" class="button button1">Buy</a>
                     <a href="/sell" class="button button1">Sell</a>
-                    <a href="/myadds" class="button button1">My Ads</a>
+                    @auth
+                    <a href="/myadds" class="button button1">My Profile</a>
+                    @endauth
                 </div>
             </div>
         </div>
