@@ -16,7 +16,7 @@
 
     <form action="{{route('store')}}" method="POST" enctype="multipart/form-data">
     @csrf
-    <h3>{{$name}}</h3>
+    <h3>as {{$name}}</h3>
     <br>
     <label for="category_id">Choose Your Category:</label>
     <select name="category_id" id="category_id">
@@ -50,7 +50,7 @@
     <br>
     <br>
     
-    <input type="submit" value="Post your Ad">
+    <input type="submit" value="Post Ad">
   </form>
 </div>
 @endsection

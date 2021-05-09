@@ -17,13 +17,17 @@
             @endif
 
             <div class="content">
+            <div><img src="/img/incombanner .png" alt="in.com banner"></div>
+
             <img src="/img/in.com.png" alt="in.com logo" width="500" hight="500">
                 
 
-                <div class="links">
-                    <a href="/buy" class="button button1">Buy</a>
-                    <a href="/sell" class="button button1">Sell</a>
-                    <a href="/myadds" class="button button1">My Profile</a>
+            <div>
+                    <a href="/buy" class="button button1">BUY</a>
+                    <a href="/sell" class="button button1">SELL</a>
+                    @auth
+                    <a href="/myadds" class="button button1">MY PROFILE</a>
+                    @endauth
                 </div>
             </div>
         </div>

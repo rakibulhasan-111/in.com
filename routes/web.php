@@ -25,7 +25,7 @@ Route::get('/sell', [ProductController::class,'create'])->middleware('auth');
 
 Route::get('/myadds', [ProductController::class,'myadds'])->middleware('auth');
 
-Route::get('/buy/{cat}', [ProductController::class,'show'])->middleware('auth');
+Route::get('/buy/{cat}', [ProductController::class,'show']);
 
 Route::get('/edit/{id_number}', [ProductController::class,'edit'])->name('edit');
 
