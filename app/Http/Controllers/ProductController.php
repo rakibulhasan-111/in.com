@@ -56,7 +56,7 @@ class ProductController extends Controller
 
     public function cat(){
         
-        $product = Product::latest()->paginate(1);
+        $product = Product::latest()->paginate(10);
         return view('buy', ['product'=>$product]);
     }
 
