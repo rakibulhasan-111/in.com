@@ -24,10 +24,10 @@
                         <a href="{{ route('addFavorite', ['id_number'=>$item->id]) }}" class="button button1">Add to Favourite</a>
 
                     @endif
-
+                    <a href="/buy/{{$item->category_id}}" class="button button1">Back to {{$item->category_id}} page</a>
                 </div>
                 
-                <a href="/buy/{{$item->category_id}}" class="button button1">Back to {{$item->category_id}} page</a>
+                
                 
             </div>
         </div>

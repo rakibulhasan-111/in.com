@@ -284,3 +284,11 @@ a.back {
     display: flex;
     flex-wrap: wrap;
 }
+
+.bg {
+    width: 100%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
