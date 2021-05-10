@@ -19,11 +19,11 @@ Route::get('/', [ProductController::class,'index']);
 
 Route::get('/buy', [ProductController::class,'cat']);
 
-Route::get('/buy/All', [ProductController::class,'cat'])->middleware('auth');
+Route::get('/buy/All', [ProductController::class,'cat'])->name('buy')->middleware('auth');
 
-Route::get('/sell', [ProductController::class,'create'])->middleware('auth');
+Route::get('/sell', [ProductController::class,'create'])->name('sell')->middleware('auth');
 
-Route::get('/myadds', [ProductController::class,'myadds'])->middleware('auth');
+Route::get('/myadds', [ProductController::class,'myadds'])->name('myadds')->middleware('auth');
 
 Route::get('/buy/{cat}', [ProductController::class,'show']);
 

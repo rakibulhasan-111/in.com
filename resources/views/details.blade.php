@@ -24,13 +24,17 @@
             <div class="box">
         @foreach($product as $item)
                 
-                <div class="wrapper">
+        <div class="wrapper">
                 <div class="card">
                 <img src="{{URL::to($item->image)}}" alt="Avatar" style="width:100%">
                 
                     <h1>{{ $item->product_name }}</h1>
                     <h3>by {{ $item->user_name}}</h3>
                     <p class="price">Price : {{$item->price}}</p>
+                    @auth
+                    <p class="contact">Contact Number : {{$item->contact_number}}</p>
+                    @endauth
+                    <p class="card-text">{!! \Illuminate\Support\Str::limit($item->description, 100, '...') !!}</p>
                     <a href="{{ route('showSingleProduct', ['id_number'=>$item->id]) }}" class="button button1">View Details</a>
                 
                 </div>
