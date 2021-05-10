@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="flex-center position-ref full-height">
-        
+        <div class="content">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -16,12 +16,14 @@
                     @endauth
                 </div>
             @endif
+            <div><img src="/img/incombanner .png" alt="in.com banner" width="90%"></div>
             
-
+            </div>
+            
+            </div>
             <div class="content">
-                <div><img src="/img/incombanner .png" alt="in.com banner"></div>
-            
-                <div><img src="/img/in.com.png" alt="in.com logo" width="400" hight="400"></div>
+                
+            <div><img src="/img/in.com.png" alt="in.com logo" width="30%"></div>
             
                 <div>
                     <a href="/buy" class="button button1">BUY</a>
@@ -31,6 +33,6 @@
                     @endauth
                 </div>
             </div>
-            </div>
+            
 @endsection
 

@@ -18,28 +18,30 @@
                     <a href="/about" class="button button1">Edit Profile</a>
                 </div>
             </div>
-                @foreach($product as $item)
+            <div class="box">
+        @foreach($product as $item)
                 
                 <div class="wrapper">
-
-                <div class="container">
-                <img src="{{URL::to($item->image)}}" alt="Avatar" class="image">
-                <div class="middle">
-                <div class="text">
+                <div class="card">
+                <img src="{{URL::to($item->image)}}" alt="Avatar" style="width:100%">
+                
                     <h1>{{ $item->product_name }}</h1>
-                    <h4>Price : {{$item->price}}</h4>
-                    
+                    <h3>by {{ $item->user_name}}</h3>
+                    <p class="price">Price : {{$item->price}}</p>
                     <a href="{{ route('showSingleProduct', ['id_number'=>$item->id]) }}" class="button button1">View Details</a>
-                </div>
-                </div>
-                </div>
                     <?php $id_number=$item->id?>
-                    <a href="{{ route('edit', ['id_number'=>$id_number]) }}" class="btn btn-sm btn-success">Edit</a>
-                    <a href="{{route('delete', ['id_number'=>$id_number])}}" class="btn btn-sm btn-danger">Delete</a>
+                    <a href="{{ route('edit', ['id_number'=>$id_number]) }}" class="button button2">Edit</a>
+                    <a href="{{route('delete', ['id_number'=>$id_number])}}" class="button button3">Delete</a>
+                
+                </div>
     
                 </div>
                 
-                @endforeach
+        @endforeach
+        </div>
+                    
+    
+                
 
                 <div class="content">
                 <div class="pagination">{{$product->links('pagination::bootstrap-4')}}</div>

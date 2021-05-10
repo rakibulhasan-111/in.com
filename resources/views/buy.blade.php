@@ -5,7 +5,7 @@
         
             <div class="content">
                 <div class="title m-b-md">
-                    buy
+                    All Products
                 </div>
 
                 <div class="links m-b-md">
@@ -20,29 +20,24 @@
                 </div>
 
             </div>
-
-        
-        
+        <div class="box">
         @foreach($product as $item)
                 
                 <div class="wrapper">
-
-                <div class="container">
-                <img src="{{URL::to($item->image)}}" alt="Avatar" class="image">
-                <div class="middle">
-                <div class="text">
+                <div class="card">
+                <img src="{{URL::to($item->image)}}" alt="Avatar" style="width:100%">
+                
                     <h1>{{ $item->product_name }}</h1>
                     <h3>by {{ $item->user_name}}</h3>
-                    <h4>Price : {{$item->price}}</h4>
+                    <p class="price">Price : {{$item->price}}</p>
                     <a href="{{ route('showSingleProduct', ['id_number'=>$item->id]) }}" class="button button1">View Details</a>
-                </div>
-                </div>
+                
                 </div>
     
                 </div>
                 
         @endforeach
-        
+        </div>
                 <div class="content">
                 <div class="pagination">{{$product->links('pagination::bootstrap-4')}}</div>
                 </div>

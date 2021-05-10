@@ -16,7 +16,7 @@
                 </div>
             @endif
 
-            <div class="content">
+            <div class="content image">
             <div><img src="/img/incombanner .png" alt="in.com banner"></div>
 
             <img src="/img/in.com.png" alt="in.com logo" width="500" hight="500">

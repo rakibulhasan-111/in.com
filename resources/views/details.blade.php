@@ -21,25 +21,24 @@
                     <a href="/buy/Sports Instruments" class="button button1">Sports Instruments</a>
                 </div>
             </div>
-            @foreach($product as $item)
-            
-            <div class="wrapper">
-
-                <div class="container">
-                <img src="{{URL::to($item->image)}}" alt="Avatar" class="image">
-                <div class="middle">
-                <div class="text">
+            <div class="box">
+        @foreach($product as $item)
+                
+                <div class="wrapper">
+                <div class="card">
+                <img src="{{URL::to($item->image)}}" alt="Avatar" style="width:100%">
+                
                     <h1>{{ $item->product_name }}</h1>
                     <h3>by {{ $item->user_name}}</h3>
-                    <h4>Price : {{$item->price}}</h4>
+                    <p class="price">Price : {{$item->price}}</p>
                     <a href="{{ route('showSingleProduct', ['id_number'=>$item->id]) }}" class="button button1">View Details</a>
-                </div>
-                </div>
+                
                 </div>
     
                 </div>
-            
-            @endforeach
+                
+        @endforeach
+        </div>
             <div class="content">
                 <div class="pagination">{{$product->links()}}</div>
                 </div>
