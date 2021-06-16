@@ -1,25 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-        
-            
-            <div class="content">
-
-                <div class="title m-b-md">
-                    Edit Profile
-                </div>
-
-                <div class="links m-b-md">
-                    <a href="/" class="button button1">Home</a>
-
-                    <a href="/myadds" class="button button1">My Ads</a>
-                    
-                    <a href="{{route('myfavorites')}}" class="button button1">My Favourites</a>
-                </div>
+<div class="content">
+<div class="links m-b-md">
+                <a href="/" class="button button1">Home</a>
+                <a href="{{route('myfavorites')}}" class="button button1">My Favourites</a>
+                <a href="{{route('myadds')}}" class="button button1">My Ads</a>
             </div>
+</div>
 
-
-            <div class="container">
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -38,7 +28,7 @@
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email Address') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <h3>{{Auth::user()->email}}</h3>
                             </div>
                         </div>
@@ -98,5 +88,24 @@
             </div>
         </div>
     </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Delete your account and all of your data') }}</div>
+                    <div class="card-body"> 
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                <div class="btn btn-danger">
+                                    <a href="{{ route('deleteAccount')}}" onclick="return confirm('Are you sure you want to delete your account and everything related to it??');">Delete Your Account !!</a>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>   
 </div>
 @endsection

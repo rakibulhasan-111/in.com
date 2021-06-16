@@ -8,6 +8,7 @@ use App\Models\Favorite;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use Illuminate\Support\Str;
+use File;
 
 class ProductController extends Controller
 {
@@ -172,5 +173,28 @@ class ProductController extends Controller
         ->where('user_id', '=', $id)
         ->pluck('product_id');
         return back();
+    }
+
+    public function deleteAccount()
+    {
+        $id = Auth::id();
+        $email = Auth::user()->email;
+        $post=DB::table('products')
+        ->where('email_address', '=', $email)
+        ->pluck('image');
+        // $post=DB::table('products')->where('email_address',$email)->get();
+        // $images=($post->image);
+        foreach($post as $image){
+          $image_path = $image;
+          if(File::exists($image_path)) {
+            File::delete($image_path);
+          }
+        }
+        $delete=DB::table('favorites')->where('user_id',$id)->delete();
+        $delete2=DB::table('products')->where('email_address',$email)->delete();
+        $delete3=DB::table('users')->where('email',$email)->delete();
+
+        return redirect()->route('home');
+        return redirect('/');
     }
 }

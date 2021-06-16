@@ -19,7 +19,7 @@ Route::get('/', [ProductController::class,'index']);
 
 Route::get('/buy', [ProductController::class,'cat']);
 
-Route::get('/buy/All', [ProductController::class,'cat'])->name('buy')->middleware('auth');
+Route::get('/buy/All', [ProductController::class,'cat'])->name('buy');
 
 Route::get('/sell', [ProductController::class,'create'])->name('sell')->middleware('auth');
 
@@ -39,9 +39,12 @@ Route::get('/showSingleProduct/{id_number}', [ProductController::class,'showSing
 
 Route::get('/addFavorite/{id_number}', [ProductController::class,'addFavorite'])->name('addFavorite');
 
-Route::get('/myfavorites', [ProductController::class,'myfavorites'])->name('myfavorites');
+Route::get('/myfavorites', [ProductController::class,'myfavorites'])->name('myfavorites')->middleware('auth');
 
 Route::get('/removeFromFavorite/{favorite_id}',[ProductController::class,'removeFromFavorite'])->name('removeFromFavorite');
+
+Route::get('/deleteAccount',[ProductController::class,'deleteAccount'])->name('deleteAccount')->middleware('verified');
+
 
 
 Auth::routes(['verify'=>true]);

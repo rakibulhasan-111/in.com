@@ -41,7 +41,7 @@
 <div id="app">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
                 <div class="container">
-                    <a class="navbar-brand js-scroll-trigger" href="{{route('home')}}">Home</a>
+                    <a class="navbar-brand js-scroll-trigger" style="color:sandybrown;" href="{{route('home')}}">Home</a>
                     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         Menu
                         <i class="fas fa-bars ml-1"></i>
@@ -49,9 +49,9 @@
                     
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('buy') }}">Buy Product</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('sell') }}">Post an Ad</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('about') }}">My Profile</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" style="color:sandybrown;" href="{{ route('buy') }}">Buy Product</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" style="color:sandybrown;" href="{{ route('sell') }}">Post an Ad</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" style="color:sandybrown;" href="{{ route('about') }}">My Profile</a></li>
                        
                     </ul>
                         <ul class="navbar-nav ml-auto">
@@ -59,23 +59,23 @@
                             @guest
                                 @if (Route::has('login'))
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                        <a class="nav-link" style="color:sandybrown;" href="{{ route('login') }}">{{ __('Login') }}</a>
                                     </li>
                                 @endif
 
                                 @if (Route::has('register'))
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                        <a class="nav-link" style="color:sandybrown;" href="{{ route('register') }}">{{ __('Register') }}</a>
                                     </li>
                                 @endif
                             @else
                                 <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" style="color:sandybrown;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }}
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        <a class="dropdown-item" href="{{ route('logout') }}" style="color:sandybrown;"
                                         onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}

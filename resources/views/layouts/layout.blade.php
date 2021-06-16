@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    <title>in.com</title>
+    <title>In.com</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -26,7 +26,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Agency - Start Bootstrap Theme</title>
+        <title></title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
@@ -40,17 +40,17 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="{{route('home')}}">Home</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand js-scroll-trigger" style="color:sandybrown;" href="{{URL('/')}}">Home</a>
+                <!-- <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ml-1"></i>
-                </button>
+                </button> -->
                 
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" style="color:sandybrown;" href="#services"><b>Services</b></a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" style="color:sandybrown;" href="#about"><b>About</b></a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" style="color:sandybrown;" href="#team"><b>Team</b></a></li>
                        
                     </ul>
                     <ul class="navbar-nav ml-auto">
@@ -58,26 +58,26 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}" style="color:sandybrown;" ><b>{{ __('Login') }}</b></a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}" style="color:sandybrown;"><b>{{ __('Register') }}</b></a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" style="color:sandybrown;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <b>{{ Auth::user()->name }}</b>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item" href="{{ route('logout') }}" style="color:sandybrown;"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        <b>{{ __('Logout') }}</b>
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -93,9 +93,9 @@
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
-                    <div class="masthead-subheading">What is sold in KUET, Bought in KUET</div>
+                    <div class="masthead-subheading" >What is sold in KUET, Bought in KUET</div>
                     <div class="masthead-heading text-uppercase">Insider Commerce</div>
-                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"  href="#services">Explore</a>
             </div>
         </header>
         <!-- Services-->
@@ -103,7 +103,7 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Services</h2>
-                    <h3 class="section-subheading text-muted">Explore Our Website and trade your necessities</h3>
+                    <h3 class="section-subheading text-muted">A multi-vendor e-commerce website only for the KUETIANS!</h3>
                 </div>
                 <div class="row text-center">
                     <div class="col-md-4">
@@ -112,17 +112,16 @@
                             <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
                         </span>
                         <h4 class="my-3"><a href="{{ route('buy') }}" class="button button1">Buy Products</a></h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                        <p class="text-muted">Buy what you need and explore which products are on sale by your fellow Kuetians!</p>
                     </div>
                     @auth
                     <div class="col-md-4">
-                        <br><br><br>
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3"><a href="{{route('myadds')}}" class="button button1">My Profile</a></h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                        <h4 class="my-3"><a href="{{route('about')}}" class="button button1">My Profile</a></h4>
+                        <p class="text-muted">Change Password, Delete Account</p>
                     </div>
                     @endauth
                     <div class="col-md-4">
@@ -131,11 +130,35 @@
                             <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
                         </span>
                         <h4 class="my-3"><a href="{{ route('sell') }}" class="button button1">Post an Ad</a></h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                        <p class="text-muted">Don't throw away what you don't need.Post an ad here.You could earn some money,help others.</p>
                     </div>
     
                     
-                    
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3"><a href="{{route('myfavorites')}}" class="button button1">My favorites</a></h4>
+                        <p class="text-muted">Put ads you like the most in this favorite section. So that you can directly find them when you wish.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <br>
+                        <span class="">
+                            <i class=""></i>
+                            <i class=""></i>
+                        </span>
+                        <h4 class="my-3"><a href="{{ route('buy') }}" class=""></a></h4>
+                        <p class="text-muted"></p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3"><a href="{{route('myadds')}}" class="button button1">My Ads</a></h4>
+                        <p class="text-muted">Manage,Update,Delete your Ads.</p>
+                    </div>
                    
                 </div>
             </div>
@@ -146,57 +169,57 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">About</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted">What is the main purpose of our website?</h3>
                 </div>
                 <ul class="timeline">
                     <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg" alt="..." /></div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="img/in.com.png" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>2009-2011</h4>
-                                <h4 class="subheading">Our Humble Beginnings</h4>
+                                <h4>Message from us:</h4>
+                                <h4 class="subheading">Don't let others take advantage of KUETIANS</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">Don't sell your unnecessary things at a random shop at Fulbari Gate or Khulna Town. Some other fellow Kuetians will again buy them from them. Why other people do business with our necessities when we can solve our own problem?</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="..." /></div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="frontend/assets/img/about/3.jpg" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>March 2011</h4>
-                                <h4 class="subheading">An Agency is Born</h4>
+                                <h4>Buy</h4>
+                                <h4 class="subheading">Your necessary stuff from other Kuetians.</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">How many times a week you need to go to Daulatpur or Shibbari to buy different products? While maybe somewhere else in the campus,some other KUETIANS are thinking of throwing away the same products.Sit in front of your computer and have a look at what others are trying to sell.</p></div>
                         </div>
                     </li>
                     <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="..." /></div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="frontend/assets/img/about/2.jpg" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>December 2015</h4>
-                                <h4 class="subheading">Transition to Full Service</h4>
+                                <h4>Sell</h4>
+                                <h4 class="subheading">What you don't need.</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">Just think how many valuable things we throw away everyday just because they have no purpose in our life anymore. Don't do that. Snap a picture of your unnecessary products and post an Ad here. Someone else might buy them from you.</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="..." /></div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="frontend/assets/img/about/05-full.jpg" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>July 2020</h4>
-                                <h4 class="subheading">Phase Two Expansion</h4>
+                                <h4>Isn't it logical?</h4>
+                                <h4 class="subheading">Your own multi-vendor E-commerce website.</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">People outside of Kuet won't be able to access the website. Only Kuetians can trade here. So,secure your trading by communicating with each-other and get the benefit.</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image">
                             <h4>
-                                Be Part
+                                Embrace
                                 <br />
-                                Of Our
+                                Your own
                                 <br />
-                                Story!
+                                Website
                             </h4>
                         </div>
                     </li>
@@ -243,7 +266,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
+                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">This website was done on the purpose of CSE-3200 project. Maybe this is the start of something new.</p></div>
                 </div>
             </div>
         </section>
